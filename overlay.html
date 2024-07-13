@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Overlay Twitch</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: transparent;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+            color: white;
+        }
+        .overlay {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            display: flex;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            border-radius: 10px;
+        }
+        .overlay img {
+            height: 40px;
+            margin-right: 10px;
+        }
+        .overlay div {
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay">
+        <img id="logo" src="twitter.png" alt="Twitter">
+        <div id="info">Suivez-moi sur Twitter @TonTwitter</div>
+    </div>
+
+    <script>
+        const infos = [
+            { logo: 'twitter.png', text: 'Suivez-moi sur Twitter @leyt' },
+            { logo: 'instagram.png', text: 'Suivez-moi sur Instagram @ley' },
+            { logo: 'tiktok.png', text: 'Suivez-moi sur TikTok @ley' },
+        ];
+
+        let currentIndex = 0;
+
+        function updateInfo() {
+            currentIndex = (currentIndex + 1) % infos.length;
+            document.getElementById('logo').src = infos[currentIndex].logo;
+            document.getElementById('info').innerText = infos[currentIndex].text;
+        }
+
+        setInterval(updateInfo, 10000);
+    </script>
+</body>
+</html>
