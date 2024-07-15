@@ -35,24 +35,29 @@
 <body>
     <div class="overlay">
         <img id="logo" src="twitter.png" alt="Twitter">
-        <div id="info">Suivez-moi sur Twitter @TonTwitter</div>
+        <div id="info"></div>
     </div>
 
     <script>
         const infos = [
-            { logo: 'twitter.png', text: 'Suivez-moi sur Twitter @leyt' },
-            { logo: 'instagram.png', text: 'Suivez-moi sur Instagram @ley' },
-            { logo: 'tiktok.png', text: 'Suivez-moi sur TikTok @ley' },
+            { logo: 'twitter.png', text: 'Suivez-moi sur Twitter @leytonv5' },
+            { logo: 'instagram.png', text: 'Suivez-moi sur Instagram @Leyton.V2' },
+            { logo: 'tiktok.png', text: 'Suivez-moi sur TikTok @leytonv02' },
+            { logo: 'maxikits.png', text: 'Code promo: leytonv2' }
         ];
 
         let currentIndex = 0;
 
         function updateInfo() {
-            currentIndex = (currentIndex + 1) % infos.length;
             document.getElementById('logo').src = infos[currentIndex].logo;
             document.getElementById('info').innerText = infos[currentIndex].text;
+            currentIndex = (currentIndex + 1) % infos.length;
         }
 
+        // Initialize the first display
+        updateInfo();
+
+        // Set interval for updating the information
         setInterval(updateInfo, 10000);
     </script>
 </body>
